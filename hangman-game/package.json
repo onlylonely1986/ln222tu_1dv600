@@ -1,0 +1,21 @@
+{
+  "name": "ln222tu_1dv600",
+  "version": "1.0.0",
+  "description": "hangman-game",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onlylonely1986/ln222tu_1dv600.git"
+  },
+  "author": "Lone Nilsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onlylonely1986/ln222tu_1dv600/issues"
+  },
+  "homepage": "https://github.com/onlylonely1986/ln222tu_1dv600#readme"
+}
