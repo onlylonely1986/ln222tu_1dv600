@@ -1,5 +1,7 @@
 const sayHello = () => {
-  console.log('hello there')
+  console.log('Bye')
 }
+
+sayHello()
 
 module.exports = { sayHello }

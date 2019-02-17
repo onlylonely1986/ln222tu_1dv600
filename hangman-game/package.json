@@ -14,6 +14,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
+    "help": "node lib/help.js",
+    "play": "node lib/startGame.js",
+    "quit": "node lib/utils.js",
     "lint": "standard | snazzy || true"
   },
   "repository": {

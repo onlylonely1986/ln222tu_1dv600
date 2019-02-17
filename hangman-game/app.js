@@ -1,35 +1,48 @@
+'use strict'
 // const fnkModule = require('./lib/utils.js')
 // fnkModule.sayHello()
 
-// const Game = require('./src/Game.js')
-// let game = new Game()
+// const inquirer = require('inquirer')
+// const readline = require('readline')
 
-// game.sayHello()
+// let wordBank = ['elephant', 'computer', 'apple', 'lemon']
+// let underScores = []
+// let randWord = wordBank[Math.floor(Math.random() * wordBank.length)]
 
-const inquirer = require('inquirer')
+// for (let i = 0; i < randWord.length; i++) {
+//   underScores.push('_ ')
+// }
 
-let wordBank = ['elephant', 'computer', 'apple', 'lemon']
-let underScores = []
-let randWord = wordBank[Math.floor(Math.random() * wordBank.length)]
-
-for (let i = 0; i < randWord.length; i++) {
-  underScores.push('_ ')
-}
-
-console.log('Welcome to hangman game!')
+console.log('Welcome to your favorite HANGMAN GAME!')
 console.log(' ')
-console.log('Do you want to guess the word? Be aware that you might be hanged!')
+console.log('PLAY (write npm run play)         HELP (write npm run help)')
+console.log('NICK (write npm run nick)         QUIT (write npm run quit)')
+// console.log('PLAY (write npm run play)')
+// console.log('QUIT (write npm run quit)')
+// console.log('Do you want to guess the word? Be aware that you might be hanged!')
 console.log(' ')
+// game.start()
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// })
 
-var questions = [{
-  type: 'input',
-  name: 'letter',
-  message: `The word has (${underScores}), ${underScores.length} letters!`
-}]
+// rl.question('What do you think of Node.js? ', (answer) => {
+//   // TODO: Log the answer in a database
+//   console.log(`Thank you for your valuable feedback: ${answer}`)
 
-inquirer.prompt(questions).then(answers => {
-  console.log(' ')
-  console.log(`Your first guess is ${answers['letter']}`)
-})
+//   rl.close()
+// })
+
+// var questions = [{
+//   type: 'input',
+//   name: 'letter',
+//   message: `The word has (${underScores}), ${underScores.length} letters!`
+// }]
+
+// inquirer.prompt(questions).then(answers => {
+//   console.log(' ')
+//   console.log(`Your first guess is ${answers['letter']}`)
+// })
 
 // inquirer.prompt(question2)
