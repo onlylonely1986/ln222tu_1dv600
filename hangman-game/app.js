@@ -1,8 +1,8 @@
-const fnkModule = require('./lib/utils.js')
+// const fnkModule = require('./lib/utils.js')
 // fnkModule.sayHello()
 
-const Game = require('./src/Game.js')
-let game = new Game()
+// const Game = require('./src/Game.js')
+// let game = new Game()
 
 // game.sayHello()
 
@@ -20,13 +20,16 @@ console.log('Welcome to hangman game!')
 console.log(' ')
 console.log('Do you want to guess the word? Be aware that you might be hanged!')
 console.log(' ')
+
 var questions = [{
   type: 'input',
   name: 'letter',
-  message: `The word has ${underScores} letters!`
+  message: `The word has (${underScores}), ${underScores.length} letters!`
 }]
 
 inquirer.prompt(questions).then(answers => {
   console.log(' ')
   console.log(`Your first guess is ${answers['letter']}`)
 })
+
+// inquirer.prompt(question2)
