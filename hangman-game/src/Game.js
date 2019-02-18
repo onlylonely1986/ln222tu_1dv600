@@ -49,19 +49,18 @@ class Game {
     for (let i = 0; i < randWord.length; i++) {
       if (capitalLetter === randWord[i].toUpperCase() && this.repeat === false) {
         this.underScores[i] = capitalLetter
-      } else {
-      // second loop will handle as this loop gives last value by deafult
-        // this.lives--
       }
+    //   if (capitalLetter !== randWord[i].toUpperCase()) {
+    //     console.log('finns inte med')
+    //     this.lives--
+    //   }
     }
     console.log('    ')
     console.log('Guess a letter: \n' + this.underScores.join(' ') + '  lives: ' + this.lives + '.')
     console.log(this.played)
     rl.question(' ', (letter) => {
-      // TODO: Log the answer in a database
       console.log(`You picked: ${letter}`)
       this.guess(letter, randWord)
-      // rl.close()
     })
     // SECOND LOOP: returns a value based on if value exists or not...has a break to stop loop from returning last value by default
     for (let i = 0; i < randWord.length; i++) {
@@ -87,16 +86,16 @@ class Game {
   gameOver () {
     rl.close()
     let appAgain = require('../app.js')
-    console.log(appAgain)
     this.underScores = []
     this.played = []
     this.lives = 6
     this.lifeLost = false
     this.found = 0
     this.message = ''
+    return appAgain
   }
 
-  // // WIN FUNCTION
+  // WIN FUNCTION
   win () {
     console.log(' ')
     console.log('YOU WON, GOOD JOB!')
