@@ -1,6 +1,8 @@
 'use strict'
 
-console.log('Follow the instructions to play this game in terminal.')
-console.log('You are supposed to guess the word, letter by letter.')
+const helpMe = () => {
+  return 'Follow the instructions to play this game in terminal.\nYou are supposed to guess the word, letter by letter.\nBack to main menu write "npm start".'
+}
+helpMe()
 
-console.log('Back to main menu write "npm start".')
+module.exports = { helpMe }

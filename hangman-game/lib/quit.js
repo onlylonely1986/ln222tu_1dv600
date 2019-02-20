@@ -1,7 +1,5 @@
-const sayGoodBye = () => {
+function sayGoodBye () {
   console.log('Bye')
 }
-
-sayGoodBye()
 
 module.exports = { sayGoodBye }
