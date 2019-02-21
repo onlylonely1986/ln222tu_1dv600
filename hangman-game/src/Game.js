@@ -1,5 +1,7 @@
 'use strict'
 const readline = require('readline')
+const menu = require('../lib/menu')
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -85,14 +87,13 @@ class Game {
   // reset all inputs if gameover method calls
   gameOver () {
     rl.close()
-    let appAgain = require('../app.js')
     this.underScores = []
     this.played = []
     this.lives = 6
     this.lifeLost = false
     this.found = 0
     this.message = ''
-    return appAgain
+    menu.runMenu()
   }
 
   // WIN FUNCTION
