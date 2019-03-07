@@ -3,16 +3,21 @@
 const readline = require('readline-sync')
 const help = require('./help')
 const quit = require('./quit')
+const nick = require('./nick')
+let input
 
-function runMenu () {
+function runMenu (nickname) {
   console.log('Welcome to your favorite HANGMAN GAME!')
   console.log(' ')
   console.log('MENU:')
   console.log('PLAY (P)               HELP (H)')
   console.log('NICK (N)               QUIT (Q)')
   console.log(' ')
-
-  let input = readline.question('Do your choice: > ')
+  if (nickname) {
+    input = readline.question(`Welcome to do your choice ${nickname}`)
+  } else {
+    input = readline.question('Do your choice: > ')
+  }
 
   if (input.toUpperCase() === 'P' || input.toUpperCase() === 'N' || input.toUpperCase() === 'H' || input.toUpperCase() === 'Q') {
     if (input.toUpperCase() === 'P') {
@@ -24,7 +29,8 @@ function runMenu () {
       game1.start(testword)
     }
     if (input.toUpperCase() === 'N') {
-      console.log('Ah, do you want to add a nickname? It is not possible at this moment ;)')
+      nick.newNick()
+      // console.log('Ah, do you want to add a nickname? It is not possible at this moment ;)')
     }
     if (input.toUpperCase() === 'H') {
       console.log(help.helpMe())
