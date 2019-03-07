@@ -30,8 +30,8 @@ function runMenu () {
       console.log(help.helpMe())
     }
     if (input.toUpperCase() === 'Q') {
-      console.log('Okey, you want`s to quit? Are your sure? Push Q again, other push B for back.')
-      quit.sayGoodBye()
+      console.log('Okey, you want`s to quit?')
+      console.log(quit.sayGoodBye())
     }
   } else {
     console.log('Try again!')

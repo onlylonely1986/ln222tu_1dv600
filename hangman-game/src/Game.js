@@ -19,11 +19,18 @@ class Game {
   }
 
   start (words) {
+    this.createNewWord(words)
+    this.printOut()
+  }
+
+  createNewWord (words) {
+    console.log(words)
+    console.log(this.word)
     this.word = words[Math.floor(Math.random() * words.length)]
     for (let i = 0; i < this.word.length; i++) {
       this.underScores.push('_ ')
     }
-    this.printOut()
+    return this.underScores
   }
 
   printOut () {
@@ -38,9 +45,9 @@ class Game {
   // GUESS
   processLetter (letter, word) {
     let secretWord = word.toUpperCase()
-    // If the letter is repeated tell the user about it and do nothing: you can only lose a life on a letter once
     let capitalLetter = letter.toUpperCase()
 
+    // If the letter is repeated tell the user about it and do nothing: you can only lose a life on a letter once
     if (this.played.includes(capitalLetter)) {
       this.repeat = true
       console.log('You have already tried this letter, try another...')
@@ -92,10 +99,6 @@ class Game {
   lose () {
     console.log('Sorry your out of lives! Type npm start to go to main menu!')
     this.gameOver()
-  }
-
-  hejsan () {
-    return 'hejsan svejsan'
   }
 }
 

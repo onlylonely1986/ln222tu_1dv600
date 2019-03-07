@@ -1,21 +1,23 @@
 'use strict'
 const mocha = require('mocha')
 const assert = require('chai').assert
-const app = require('../app')
-let Game = require('../src/Game')
-let game = new Game()
+const help = require('../lib/help')
+const quit = require('../lib/quit')
 
-mocha.describe('App', function () {
-  mocha.it('app should return hello', function () {
-    assert.equal(app(), 'hello')
+mocha.describe('Help', function () {
+  mocha.it('Help should return a string', function () {
+    assert.isString(help.helpMe(), 'string')
+  })
+  mocha.it('Help should return a message to guide the player', function () {
+    assert.equal(help.helpMe(), 'Follow the instructions to play this game in terminal.\nYou are supposed to guess the word, letter by letter.\nBack to main menu write "npm start".')
   })
 })
 
-mocha.describe('game', function () {
-  mocha.it('hejsan should return hejsan svejsan', function () {
-    assert.equal(game.hejsan(), 'hejsan svejsan')
+mocha.describe('Quit', function () {
+  mocha.it('Quit should return a string', function () {
+    assert.isString(quit.sayGoodBye(), 'string')
   })
-  mocha.it('guess should return right letter on right place', function () {
-    assert.equal(game.guess('h', ['horse']), '')
+  mocha.it('Quit should return a message with Bye', function () {
+    assert.equal(quit.sayGoodBye(), 'Bye')
   })
 })

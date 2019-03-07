@@ -1,5 +1,5 @@
 function sayGoodBye () {
-  console.log('Bye')
+  return 'Bye'
 }
 
 module.exports = { sayGoodBye }
