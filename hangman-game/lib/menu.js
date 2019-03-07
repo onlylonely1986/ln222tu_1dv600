@@ -17,9 +17,11 @@ function runMenu () {
   if (input.toUpperCase() === 'P' || input.toUpperCase() === 'N' || input.toUpperCase() === 'H' || input.toUpperCase() === 'Q') {
     if (input.toUpperCase() === 'P') {
       console.clear()
+      // let words = ['elephant', 'computer', 'apple', 'lemon']
+      let testword = ['horse']
       let Game = require('../src/Game')
       let game1 = new Game()
-      game1.start()
+      game1.start(testword)
     }
     if (input.toUpperCase() === 'N') {
       console.log('Ah, do you want to add a nickname? It is not possible at this moment ;)')

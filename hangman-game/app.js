@@ -4,3 +4,7 @@
 const menu = require('./lib/menu')
 
 menu.runMenu()
+
+module.exports = function () {
+  return 'hello'
+}

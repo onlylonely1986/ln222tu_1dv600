@@ -9,19 +9,17 @@ const rl = readline.createInterface({
 
 class Game {
   constructor () {
-    this.quiz = {}
     this.underScores = []
     this.played = []
     this.lives = 6
     this.lifeLost = false
     this.found = 0
     this.message = ''
-    this.puzzles = ['elephant', 'computer', 'apple', 'lemon']
     this.repeat = Boolean
   }
 
-  start () {
-    let randWord = this.puzzles[Math.floor(Math.random() * this.puzzles.length)]
+  start (words) {
+    let randWord = words[Math.floor(Math.random() * words.length)]
 
     for (let i = 0; i < randWord.length; i++) {
       this.underScores.push('_ ')
@@ -108,6 +106,10 @@ class Game {
   lose () {
     console.log('Sorry your out of lives! Type npm start to go to main menu!')
     this.gameOver()
+  }
+
+  hejsan () {
+    return 'hejsan svejsan'
   }
 }
 
