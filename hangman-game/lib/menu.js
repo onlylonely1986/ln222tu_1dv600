@@ -3,7 +3,7 @@
 const readline = require('readline-sync')
 const help = require('./help')
 const quit = require('./quit')
-const nick = require('./nick')
+const newUser = require('./newUser')
 let input
 
 function runMenu (nickname) {
@@ -29,7 +29,7 @@ function runMenu (nickname) {
       game1.start(testword)
     }
     if (input.toUpperCase() === 'N') {
-      nick.newNick()
+      newUser.newNick()
       // console.log('Ah, do you want to add a nickname? It is not possible at this moment ;)')
     }
     if (input.toUpperCase() === 'H') {
