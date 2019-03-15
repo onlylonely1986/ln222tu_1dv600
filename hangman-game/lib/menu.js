@@ -6,7 +6,7 @@ const quit = require('./quit')
 const newUser = require('./newUser')
 let input
 
-function runMenu (nickname) {
+const runMenu = (nickname) => {
   console.log('Welcome to your favorite HANGMAN GAME!')
   console.log(' ')
   console.log('MENU:')
