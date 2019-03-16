@@ -6,12 +6,15 @@ const quit = require('./quit')
 const newUser = require('./newUser')
 let input
 
-const runMenu = (nickname) => {
+function runMenu (nickname) {
   console.log('Welcome to your favorite HANGMAN GAME!')
   console.log(' ')
-  console.log('MENU:')
-  console.log('PLAY (P)               HELP (H)')
-  console.log('NICK (N)               QUIT (Q)')
+  console.log('M   M  EEEEE  N    N  U    U\nMM MM  E      NN   N  U    U\nM M M  EEE    N  N N  U    U\nM   M  E      N   NN  UU  UU\nM   M  EEEEE  N    N    UUU\n')
+  console.log('============================================================================')
+  console.log(' ')
+  console.log('PLAY (P)       LOGIN (L)        NEW USER (N)       HELP (H)         QUIT (Q)')
+  console.log(' ')
+  console.log('============================================================================')
   console.log(' ')
   if (nickname) {
     input = readline.question(`Welcome to do your choice ${nickname}`)

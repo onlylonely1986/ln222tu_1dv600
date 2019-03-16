@@ -1,5 +1,5 @@
 'use strict'
-let menu = require('./menu')
+// let menu = require('./menu')
 const readline = require('readline-sync')
 const User = require('../models/userModel')
 const mongoose = require('../config/mongoose')
@@ -21,10 +21,10 @@ async function newNick () {
     await userHM.save()
     console.log('Creating account ... ')
     console.log('Your account was created successfully!')
-    menu.runMenu(inputUser)
+    // menu.runMenu(inputUser)
   } catch (e) {
     console.log('To bad, an error occured :(')
-    console.log(e)
+    // console.log(e)
   }
 }
 
