@@ -2,4 +2,4 @@
 
 const menu = require('./lib/menu')
 
-menu.runMenu()
+menu.gameOn()

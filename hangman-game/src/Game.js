@@ -1,50 +1,49 @@
 'use strict'
-const readline = require('readline')
-const menu = require('../lib/menu')
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
+const readline = require('readline-sync')
 
 class Game {
   constructor () {
     this.underScores = []
     this.played = []
+    this.secretWord = undefined
+    this.secretWordArr = []
     this.lives = 6
     this.lifeLost = false
     this.word = undefined
     this.message = ''
-    this.repeat = Boolean
+    this.repeat = false
+    this.inGame = true
   }
 
   start (words) {
+    this.inGame = true
     this.createNewWord(words)
     this.printOut()
   }
 
   createNewWord (words) {
-    console.log(words)
-    console.log(this.word)
     this.word = words[Math.floor(Math.random() * words.length)]
     for (let i = 0; i < this.word.length; i++) {
       this.underScores.push('_ ')
+      this.secretWordArr.push(this.word[i].toUpperCase())
     }
+    console.log(this.secretWordArr)
     return this.underScores
   }
 
   printOut () {
-    console.log('    ')
-    console.log('Guess a letter: \n' + this.underScores.join(' ') + '  lives: ' + this.lives + '.')
-    rl.question(' ', (letter) => {
-      console.log(`You picked: ${letter}`)
-      this.processLetter(letter, this.word)
-    })
+    if (!this.inGame) {
+      return
+    }
+    console.log('\nGuess a letter: \n' + this.underScores.join(' ') + '  lives: ' + this.lives + '.')
+    let input = readline.question(' ')
+    console.log(`You picked: ${input}`)
+    this.processLetter(input, this.word)
   }
 
   // GUESS
   processLetter (letter, word) {
-    let secretWord = word.toUpperCase()
+    this.secretWord = word.toUpperCase()
     let capitalLetter = letter.toUpperCase()
 
     // If the letter is repeated tell the user about it and do nothing: you can only lose a life on a letter once
@@ -54,50 +53,49 @@ class Game {
     } else {
       this.repeat = false
       this.played.push(capitalLetter)
-    }
+      console.log(this.played)
 
-    if (secretWord.includes(capitalLetter) && this.repeat === false) {
-      let i = secretWord.indexOf(capitalLetter)
-      this.underScores[i] = capitalLetter
-    } else {
-      this.lives--
+      if (this.secretWord.includes(capitalLetter) && this.repeat === false) {
+        this.secretWordArr.forEach((element, index) => {
+          if (capitalLetter === element) {
+            this.underScores[index] = capitalLetter
+          }
+        })
+      } else {
+        this.lives--
+      }
     }
-
-    this.printOut()
-    console.log(this.played)
 
     // CHECK FOR WIN OR LOSE
     if (this.underScores.join('').toString().toLowerCase() === word) {
-      rl.close()
       this.win()
     }
     if (this.lives === 0) {
       this.lose()
     }
+    this.printOut()
   }
 
   // reset all inputs if gameover method calls
   gameOver () {
-    rl.close()
+    this.inGame = false
     this.underScores = []
     this.played = []
+    this.secretWord = undefined
     this.lives = 6
     this.lifeLost = false
     this.message = ''
-    menu.runMenu()
   }
 
   // WIN FUNCTION
   win () {
-    console.log(' ')
-    console.log('YOU WON, GOOD JOB!')
-    console.log(' ')
+    console.log('\nYOU WON, GOOD JOB!\n\n')
     this.gameOver()
   }
 
   // LOSE FUNCTION
   lose () {
-    console.log('Sorry your out of lives! Type npm start to go to main menu!')
+    console.log('\nSorry your out of lives!\n\n')
     this.gameOver()
   }
 }
