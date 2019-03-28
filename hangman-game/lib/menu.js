@@ -39,7 +39,7 @@ async function gameOn () {
         break
       }
       case 'H': {
-        help.helpMe()
+        console.log(help.helpMe())
         break
       }
       case 'Q': {

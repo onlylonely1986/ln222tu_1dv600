@@ -27,7 +27,6 @@ class Game {
       this.underScores.push('_ ')
       this.secretWordArr.push(this.word[i].toUpperCase())
     }
-    console.log(this.secretWordArr)
     return this.underScores
   }
 
@@ -95,7 +94,7 @@ class Game {
 
   // LOSE FUNCTION
   lose () {
-    console.log('\nSorry your out of lives!\n\n')
+    console.log('\nSorry you are out of lives!\nGAME OVER\n\n\n')
     this.gameOver()
   }
 }
